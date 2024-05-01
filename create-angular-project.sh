@@ -55,3 +55,6 @@ pnpm install bootstrap@3 jquery || { echo "Error: Failed to install Bootstrap 3 
 
 # Add lint script to package.json
 jq '.scripts.lint = "eslint --fix \"./src/**/*.ts\""' package.json > temp.json && mv temp.json package.json || { echo "Error: Failed to add lint script."; exit 1; }
+
+# Modify angular.json to include styles and scripts
+jq '.projects["'$1'"].architect.build.options |= .+ {"styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"], "scripts": ["node_modules/jquery/dist/jquery.min.js", "node_modules/bootstrap/dist/js/bootstrap.min.js"]}' angular.json > temp.json && mv temp.json angular.json || { echo "Error: Failed to modify angular.json."; exit 1; }
