@@ -15,7 +15,7 @@ then
 fi
 
 # Create a new Angular project
-ng new $1 --no-strict --standalone false --routing false --package-manager=pnpm || { echo "Error: Failed to create Angular project."; exit 1; }
+ng new $1 --prefix=$1 --no-strict --standalone false --routing false --package-manager=pnpm || { echo "Error: Failed to create Angular project."; exit 1; }
 
 # Navigate into the project directory
 cd $1 || { echo "Error: Failed to navigate to project directory."; exit 1; }
