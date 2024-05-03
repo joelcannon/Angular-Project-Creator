@@ -7,4 +7,4 @@ and then make it executable with this command.
   chmod +x create-angular-project.sh
 
 and run it using bash
-  ./create-angular-project.sh TheNameOfYouNewProject
+  ./create-angular-project.sh TheNameOfYouNewProject [OptionalPrefix]
